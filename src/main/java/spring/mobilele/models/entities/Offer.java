@@ -131,5 +131,19 @@ public class Offer {
         this.modified = modified;
     }
 
+    public Model getModel() {
+        return model;
+    }
 
+    public void setModel(Model model) {
+        this.model = model;
+    }
+
+    public User getSeller() {
+        return seller;
+    }
+
+    public void setSeller(User seller) {
+        this.seller = seller;
+    }
 }
