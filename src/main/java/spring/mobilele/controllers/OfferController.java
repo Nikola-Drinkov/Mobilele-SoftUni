@@ -4,19 +4,19 @@ import jakarta.validation.Valid;
 import org.apache.catalina.Engine;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import spring.mobilele.enums.EngineTypesEnum;
 import spring.mobilele.enums.TransmissionsEnum;
 import spring.mobilele.models.dtos.AddOfferDTO;
+import spring.mobilele.models.dtos.OfferDetailsDTO;
 import spring.mobilele.models.entities.Brand;
 import spring.mobilele.models.entities.Model;
 import spring.mobilele.models.entities.Offer;
 import spring.mobilele.services.Impl.BrandServiceImpl;
 import spring.mobilele.services.Impl.ModelServiceImpl;
+import spring.mobilele.services.Impl.OfferServiceImpl;
+import spring.mobilele.services.OfferService;
 
 import java.util.Comparator;
 import java.util.List;
@@ -28,10 +28,12 @@ public class OfferController {
 
     private BrandServiceImpl brandService;
     private ModelServiceImpl modelService;
+    private OfferServiceImpl offerService;
 
-    public OfferController(BrandServiceImpl brandService, ModelServiceImpl modelService) {
+    public OfferController(BrandServiceImpl brandService, ModelServiceImpl modelService, OfferServiceImpl offerService) {
         this.brandService = brandService;
         this.modelService = modelService;
+        this.offerService = offerService;
     }
 
     @ModelAttribute(name = "brands")
@@ -68,6 +70,15 @@ public class OfferController {
         return "offer-add";
     }
 
+    @GetMapping("/{id}")
+    public String offerDetails(@PathVariable("id") Long id,
+                               org.springframework.ui.Model model) {
+        OfferDetailsDTO offerDetailsDTO = offerService.getOfferDetails(id);
+        model.addAttribute("offerDetails", offerDetailsDTO);
+
+        return "details";
+    }
+
     @PostMapping("/add")
     public String addOffer(@ModelAttribute("addOfferDTO") @Valid AddOfferDTO addOfferDTO, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 
@@ -76,7 +87,8 @@ public class OfferController {
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.addOfferDTO", bindingResult);
             return "redirect:/offers/add";
         }
-        System.out.println(addOfferDTO);
-        return "redirect:/";
+
+        Long offerId = offerService.saveOffer(addOfferDTO);
+        return "redirect:/offers/" + offerId;
     }
 }
