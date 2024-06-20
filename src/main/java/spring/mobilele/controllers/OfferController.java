@@ -1,5 +1,6 @@
 package spring.mobilele.controllers;
 
+import jakarta.validation.Valid;
 import org.apache.catalina.Engine;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -68,15 +69,14 @@ public class OfferController {
     }
 
     @PostMapping("/add")
-    public String addOffer(@ModelAttribute AddOfferDTO addOfferDTO, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+    public String addOffer(@ModelAttribute("addOfferDTO") @Valid AddOfferDTO addOfferDTO, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 
         if(bindingResult.hasErrors()){
             redirectAttributes.addFlashAttribute("addOfferDTO", addOfferDTO);
-            redirectAttributes.addFlashAttribute(
-                    "org.springframework.validation.BindingResult.AddOfferDTO", bindingResult);
-            return "redirect:/add";
+            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.addOfferDTO", bindingResult);
+            return "redirect:/offers/add";
         }
-
+        System.out.println(addOfferDTO);
         return "redirect:/";
     }
 }

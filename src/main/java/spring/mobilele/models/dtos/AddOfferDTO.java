@@ -1,13 +1,37 @@
 package spring.mobilele.models.dtos;
 
+import jakarta.validation.constraints.*;
+
 public class AddOfferDTO {
+
+    @NotBlank(message = "{add.offer.model}")
     private String model;
+
+    @NotNull(message = "{add.offer.price.not.empty}")
+    @Positive(message = "{add.offer.price.positive}")
     private Double price;
+
+    @NotBlank(message = "{add.offer.engine}")
     private String engine;
+
+    @NotBlank(message = "{add.offer.transmission}")
     private String transmission;
+
+    @NotNull(message = "{add.offer.year.not.empty}")
+    @Min(1900)
+    @Max(2024)
     private Integer year;
+
+    @NotNull(message = "{add.offer.mileage.not.empty}")
+    @PositiveOrZero(message = "{add.offer.mileage.positive.or.zero}")
     private Integer mileage;
+
+    @NotBlank(message = "{add.offer.description.not.empty}")
+    @Size(min = 5, message = "{add.offer.description.length}")
     private String description;
+
+    @NotBlank(message = "{add.offer.url.not.empty}")
+    @Size(min = 10, max = 500, message = "{add.offer.url.size}")
     private String imageUrl;
 
     public String getModel() {
