@@ -1,0 +1,36 @@
+-- Assuming the brands have been inserted with IDs 1 to 15 as provided earlier
+INSERT INTO brands (name, created, modified) VALUES
+                                                 ('Toyota', '2024-06-18 12:00:00', '2024-06-18 12:00:00'),
+                                                 ('Ford', '2024-06-18 12:01:00', '2024-06-18 12:01:00'),
+                                                 ('Honda', '2024-06-18 12:02:00', '2024-06-18 12:02:00'),
+                                                 ('Chevrolet', '2024-06-18 12:03:00', '2024-06-18 12:03:00'),
+                                                 ('BMW', '2024-06-18 12:04:00', '2024-06-18 12:04:00'),
+                                                 ('Mercedes-Benz', '2024-06-18 12:05:00', '2024-06-18 12:05:00'),
+                                                 ('Volkswagen', '2024-06-18 12:06:00', '2024-06-18 12:06:00'),
+                                                 ('Audi', '2024-06-18 12:07:00', '2024-06-18 12:07:00'),
+                                                 ('Nissan', '2024-06-18 12:08:00', '2024-06-18 12:08:00'),
+                                                 ('Hyundai', '2024-06-18 12:09:00', '2024-06-18 12:09:00'),
+                                                 ('Kia', '2024-06-18 12:10:00', '2024-06-18 12:10:00'),
+                                                 ('Lexus', '2024-06-18 12:11:00', '2024-06-18 12:11:00'),
+                                                 ('Subaru', '2024-06-18 12:12:00', '2024-06-18 12:12:00'),
+                                                 ('Mazda', '2024-06-18 12:13:00', '2024-06-18 12:13:00'),
+                                                 ('Porsche', '2024-06-18 12:14:00', '2024-06-18 12:14:00');
+
+INSERT INTO models (name, category, start_year, end_year, created, modified, image_url, brand_id) VALUES
+                                                                                                      ('Corolla 11th Generation', 'Car', 2013, 2019, '2024-06-18 12:15:00', '2024-06-18 12:15:00', 'https://example.com/images/toyota_corolla.jpg', 1),
+                                                                                                      ('Camry 8th Generation', 'Car', 2017, 2023, '2024-06-18 12:16:00', '2024-06-18 12:16:00', 'https://example.com/images/toyota_camry.jpg', 1),
+                                                                                                      ('Mustang 6th Generation', 'Car', 2015, 2023, '2024-06-18 12:17:00', '2024-06-18 12:17:00', 'https://example.com/images/ford_mustang.jpg', 2),
+                                                                                                      ('Civic 10th Generation', 'Car', 2015, 2021, '2024-06-18 12:18:00', '2024-06-18 12:18:00', 'https://example.com/images/honda_civic.jpg', 3),
+                                                                                                      ('Accord 10th Generation', 'Car', 2017, 2023, '2024-06-18 12:19:00', '2024-06-18 12:19:00', 'https://example.com/images/honda_accord.jpg', 3),
+                                                                                                      ('Silverado 4th Generation', 'Truck', 2019, 2023, '2024-06-18 12:20:00', '2024-06-18 12:20:00', 'https://example.com/images/chevrolet_silverado.jpg', 4),
+                                                                                                      ('3 Series 7th Generation', 'Car', 2018, 2023, '2024-06-18 12:21:00', '2024-06-18 12:21:00', 'https://example.com/images/bmw_3series.jpg', 5),
+                                                                                                      ('C-Class 5th Generation', 'Car', 2021, 2023, '2024-06-18 12:22:00', '2024-06-18 12:22:00', 'https://example.com/images/mercedes_cclass.jpg', 6),
+                                                                                                      ('Golf 8th Generation', 'Car', 2019, 2023, '2024-06-18 12:23:00', '2024-06-18 12:23:00', 'https://example.com/images/volkswagen_golf.jpg', 7),
+                                                                                                      ('A4 B9', 'Car', 2016, 2023, '2024-06-18 12:24:00', '2024-06-18 12:24:00', 'https://example.com/images/audi_a4.jpg', 8),
+                                                                                                      ('Altima 6th Generation', 'Car', 2018, 2023, '2024-06-18 12:25:00', '2024-06-18 12:25:00', 'https://example.com/images/nissan_altima.jpg', 9),
+                                                                                                      ('Elantra 7th Generation', 'Car', 2020, 2023, '2024-06-18 12:26:00', '2024-06-18 12:26:00', 'https://example.com/images/hyundai_elantra.jpg', 10),
+                                                                                                      ('Sorento 4th Generation', 'Car', 2020, 2023, '2024-06-18 12:27:00', '2024-06-18 12:27:00', 'https://example.com/images/kia_sorento.jpg', 11),
+                                                                                                      ('RX 4th Generation', 'Car', 2015, 2023, '2024-06-18 12:28:00', '2024-06-18 12:28:00', 'https://example.com/images/lexus_rx.jpg', 12),
+                                                                                                      ('Outback 6th Generation', 'Car', 2020, 2023, '2024-06-18 12:29:00', '2024-06-18 12:29:00', 'https://example.com/images/subaru_outback.jpg', 13),
+                                                                                                      ('CX-5 2nd Generation', 'Car', 2017, 2023, '2024-06-18 12:30:00', '2024-06-18 12:30:00', 'https://example.com/images/mazda_cx5.jpg', 14),
+                                                                                                      ('911 992', 'Car', 2019, 2023, '2024-06-18 12:31:00', '2024-06-18 12:31:00', 'https://example.com/images/porsche_911.jpg', 15);
